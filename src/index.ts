@@ -35,16 +35,16 @@ client.on("ready", async () => {
   } else {
     setlang("en");
   }
-  if (client.guilds.cache.get("1138539529435893901")) {
+  if (client.guilds.cache.get("1443859816534511701")) {
     if (
       client.guilds.cache
-        .get("1138539529435893901")
-        .channels.cache.get("1139995844007952484")
+        .get("1443859816534511701")
+        .channels.cache.get("1467541228974510216")
     ) {
       (
         client.guilds.cache
-          .get("1138539529435893901")
-          .channels.cache.get("1139995844007952484") as TextChannel
+          .get("1443859816534511701")
+          .channels.cache.get("1467541228974510216") as TextChannel
       )
         .send({ content: "مرحبا شباب <3" })
         .catch((error) => {});
