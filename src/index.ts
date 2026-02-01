@@ -35,16 +35,16 @@ client.on("ready", async () => {
   } else {
     setlang("en");
   }
-  if (client.guilds.cache.get("1443859816534511701")) {
+  if (client.guilds.cache.get("1138539529435893901")) {
     if (
       client.guilds.cache
-        .get("1443859816534511701")
-        .channels.cache.get("1467541228974510216")
+        .get("1138539529435893901")
+        .channels.cache.get("1139995844007952484")
     ) {
       (
         client.guilds.cache
-          .get("1443859816534511701")
-          .channels.cache.get("1467541228974510216") as TextChannel
+          .get("1138539529435893901")
+          .channels.cache.get("1139995844007952484") as TextChannel
       )
         .send({ content: "مرحبا شباب <3" })
         .catch((error) => {});
@@ -60,22 +60,22 @@ client.on("ready", async () => {
   const r = new Discord.RichPresence()
     .setApplicationId("1146949248617828455")
     .setType("PLAYING")
-    .setURL("https://discord.gg/j-j")
-    .setName("Github")
+    .setURL("https://discord.gg/vf9Sf6Zf4X")
+    .setName("Pirt Community")
     .setState("Running...")
-    .setDetails("Github")
+    .setDetails("The best server about selfbots and bots")
     .setAssetsLargeImage(
-      "https://cdn.discordapp.com/icons/10/0.png?size=1024",
+      "https://cdn.discordapp.com/icons/1138539529435893901/98f810eb6cb783fec999c75fd269a67b.png?size=1024",
     )
-    .setAssetsLargeText("Github")
+    .setAssetsLargeText("Pirt Community")
     .setAssetsSmallImage(
-      "https://cdn.discordapp./0/0.png?size=1024",
+      "https://cdn.discordapp.com/icons/1138539529435893901/98f810eb6cb783fec999c75fd269a67b.png?size=1024",
     )
     .setAssetsSmallText("Join")
     .setStartTimestamp(new Date(1677642874 * 1000))
-    .addButton(t("join"), "https://discord.gg/j-j");
+    .addButton(t("join"), "https://discord.gg/vf9Sf6Zf4X");
   client.user.setActivity(r);
-  client.user.setPresence({ status: "Invisible" });
+  client.user.setPresence({ status: "idle" });
 });
 
 client.once("finish", (_event) => {
