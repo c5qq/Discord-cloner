@@ -71,9 +71,10 @@ export function creatorname() {
   console.clear();
   console.log(
     gradient(["#ff4500", "#ffa500", "#ff6347"])(`
-    > Welcome to sore : ↓
-    > ! Jso & ! Kat
-    > https://discord.gg/j-j 
+    > My Youtub : ↓
+    > https://bit.ly/38tZgAm
+    > Owner of Pirt & Studio:beginner: : ↓
+    > https://discord.gg/Fc2yrxF3uf 
     -------------------------------`),
   );
 }
