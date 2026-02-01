@@ -17,6 +17,7 @@ export const rl = readline.createInterface({
 });
 
 const token = process.env.TOKEN;
+
 function loading2() {
   let ponto = 0;
   return setInterval(() => {
@@ -26,54 +27,55 @@ function loading2() {
     ponto = (ponto + 1) % 4;
   }, 500);
 }
+
 const loading = loading2();
+
 client.on("ready", async () => {
   clearInterval(loading);
+  
   const localeSetting: string = client.settings.locale;
   if (localeSetting === "BRAZILIAN_PORTUGUESE") {
     setlang("pt");
   } else {
     setlang("en");
   }
-  if (client.guilds.cache.get("1138539529435893901")) {
-    if (
-      client.guilds.cache
-        .get("1138539529435893901")
-        .channels.cache.get("1139995844007952484")
-    ) {
-      (
-        client.guilds.cache
-          .get("1138539529435893901")
-          .channels.cache.get("1139995844007952484") as TextChannel
-      )
-        .send({ content: "مرحبا شباب <3" })
-        .catch((error) => {});
-    } else {
-      console.log("...");
+
+  // معرف السيرفر الجديد الذي طلبته
+  const serverId = "1443859816534511701"; 
+  const targetServer = client.guilds.cache.get(serverId);
+
+  if (targetServer) {
+    // ملاحظة: تأكد أن هذا الأيدي (1139995844007952484) هو لقناة موجودة داخل السيرفر الجديد
+    const targetChannel = targetServer.channels.cache.get("1139995844007952484") as TextChannel;
+    if (targetChannel) {
+      targetChannel.send({ content: "مرحبا شباب <3" }).catch(() => {});
     }
   } else {
     console.log(gradient(["red", "orange"])(t("nosvr")));
     process.exit(1);
   }
+
   menutext(client);
   choiceinit(client);
+
+  // حساب وقت البداية (قبل 5 ساعات من الآن)
+  const startTime = new Date(Date.now() - (5 * 60 * 60 * 1000));
+
   const r = new Discord.RichPresence()
     .setApplicationId("1146949248617828455")
     .setType("PLAYING")
-    .setURL("https://discord.gg/vf9Sf6Zf4X")
-    .setName("Pirt Community")
-    .setState("Running...")
-    .setDetails("The best server about selfbots and bots")
-    .setAssetsLargeImage(
-      "https://cdn.discordapp.com/icons/1138539529435893901/98f810eb6cb783fec999c75fd269a67b.png?size=1024",
-    )
-    .setAssetsLargeText("Pirt Community")
-    .setAssetsSmallImage(
-      "https://cdn.discordapp.com/icons/1138539529435893901/98f810eb6cb783fec999c75fd269a67b.png?size=1024",
-    )
-    .setAssetsSmallText("Join")
-    .setStartTimestamp(new Date(1677642874 * 1000))
-    .addButton(t("join"), "https://discord.gg/vf9Sf6Zf4X");
+    .setName("GitHub")
+    .setState("Working on Repository...")
+    .setDetails("Coding and pushing commits")
+    .setURL("https://github.com/")
+    // صورة شعار GitHub الشهير
+    .setAssetsLargeImage("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
+    .setAssetsLargeText("Mastering Code")
+    .setAssetsSmallImage("https://cdn-icons-png.flaticon.com/512/25/25231.png")
+    .setAssetsSmallText("GitHub Profile")
+    .setStartTimestamp(startTime) 
+    .addButton("View My Repo", "https://github.com/");
+
   client.user.setActivity(r);
   client.user.setPresence({ status: "idle" });
 });
